@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/creating object/creating object.iml" filepath="$PROJECT_DIR$/creating object/creating object.iml" />
       <module fileurl="file://$PROJECT_DIR$/github-intellij1.iml" filepath="$PROJECT_DIR$/github-intellij1.iml" />
     </modules>
   </component>
