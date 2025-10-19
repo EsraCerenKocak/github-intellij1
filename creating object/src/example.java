@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class example {
     public static void main(String[]args){
         int sayi=35;
@@ -14,6 +16,24 @@ public class example {
                 else{
                     System.out.println("sayı2 5 ten küçüktür");
                 }
+                int not=55;
+                if(not>=90){
+                    System.out.println("notunuz AA");
+                }
+                else if(not>=80){
+                    System.out.println("Notunuz BB");
+                }
+                else if(not>=70){
+                    System.out.println("Notunuz CC");
+                }
+                else if(not>=60){
+                    System.out.println("Notunuz DD");
+                }
+                else {
+                    System.out.println("kaldınız");
+
+                }
+
 
     }
 }
