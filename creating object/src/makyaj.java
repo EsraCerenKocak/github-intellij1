@@ -14,13 +14,20 @@ makyaj(String name,int fiyat,String marka) {
         this.fiyat = fiyat;
     }
 }
-    public void cost(){
-        System.out.println(fiyat);
+public int getFiyat(){
+    return this.fiyat;
+
+}
+public void setFiyat(int fiyat){
+    this.fiyat= fiyat;
+
+}
+
     }
 
 
 
 
 
-}
+
 
