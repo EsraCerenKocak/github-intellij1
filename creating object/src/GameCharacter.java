@@ -48,7 +48,7 @@ public class GameCharacter {
 
     }
     public String  getInfo(){
-        return "name: " + name+"Id:"+
+        return "namee: " + name+"Id:"+
                 characterId+"level:"+level+"health"+health+"totalcharacter"+totalCharacters;
 
     }
