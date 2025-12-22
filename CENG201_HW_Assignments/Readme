@@ -1,0 +1,45 @@
+In this project,I used a singly linked list structure to manage patients admitted to the  hospital.
+I know that a linked list provides a more flexible structure compared to arrays,so,I benefited from the dynamic memory
+usage offered by the linked list.Unlike arrays,a linked list doesn't require shifting elements during insertion and
+deletion operations.This makes it very suitable for hospital systems where patient information changes frequently.
+In the addPatient,the time complexity is Big O(1).This method adds a new patient to the end of the list.Since a tail
+reference is maintained in the implementation,there is no need to traverse the list from the beginning to the end.The
+new patient is added directly to the end of the list.Therefore,the insertion time remains constant even as the number of
+patients increases,which meets the expected performance.
+The removePatient removes a patient with a given ID from the list.Although the deletion operation itself is performed in
+constant time,finding the patient requires searching from the beginning of the list.In the worst case,the patient may be
+located at the end of the list or may not exist at all.For this reason the time complexity of this method is O(n).
+FindPatient also performs a linear search based on the patient IS.Since each node is checked one by one,the entire list
+may be traversed in the worst case.Therefore,the time complexity of this method is O(n).
+Q-2)When comparing LinkedList and ArrayList,ArrayList allows fast access using indices.
+However,when an element is removed,the remaining elements must be shifted,which is costly.Linked List more efficient for
+deletion operations due to its flexible structure.For this reason,I preffered linked List.
+Q-3)The queue data structure works according to the FIFO(First in First Out)prinicple,which means that the first element
+added to the queue is the first one to be removed.This structure ensures that patients who arrive at the hospital are
+treated in the order of their arrival.In real life hospitals operate in the same way,where the patient who comes first
+is treated first.For this reason,the queue structure is very suitable for managing treatment requests.
+When a treatment request is added to the system,it is placed at the end of the queue using the enqueue operation.The
+patient whose treatment will begin is removed from the front of the queue using the dequeue operation.Since these
+operations don't require traversing the queue,both of them have a time complexity ofO(1).This allows the system to
+operate quickly and efficiently.Additionally,this structure creates a fair system where patients are treated equally and
+no patient is disadvantaged.
+Q-4)The stack data structure works according to the LIFO(Last in,First Out)principle,which means that the last element
+added to the system is the first one to be removed.If treatment requests were managed using a stack,the patient who
+arrived last would be treated first.This situation would cause patients who have been waiting for a long time to be
+continuosly delayed,resulting in an unfair system.Such a structure is not suitable for real hospital operations and may
+even cause some patients to never receive treatment.Although insertion and removal operations in a stack also have a
+time comlexity of O(1),the problem here is not related to performance but to the behavioral nature of the data structure
+For this reason,using a queue to manage treatment requests is a more logical and realistic choice.
+Q-5)In this task I used a Stack data structure to manage the records of discharged patients.The stack structure works
+according to the LIFO(Last in First Out)principle,which means that the most recently added record is removed first.tHİS
+feature is very suitable for discharge operations because,in hospitals,it is usually necessary to access the information
+of the most recently discharged patient more quickly.After a patient is discharged,possible checks or error situations
+my occur,and in such cases,the most up-to-date record is examined first.In a stack structure,these record are kept at
+the top so they can be accessed quickly usind peek and pop operations.Additionally new discharge records are added to
+the system using the push operation.All of these operstions have a time complexity of O(1) which allows the system to
+work efficiently.
+Q-6)If a queue(FIFO) structure were used to manage discharge records,the first discharge patient would be processed
+first.In this case,accessing the most recently discharged patient would become more difficult and reaching up-to-date
+records would take longer.This structure is not suitable for the nature of discharge operations.Although insertion and
+removal operations in both Stack and Queue have similar time complexities,the main difference between them lies in their
+behavioral structure rather than performance.

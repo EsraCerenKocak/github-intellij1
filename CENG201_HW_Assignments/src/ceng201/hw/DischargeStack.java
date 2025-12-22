@@ -10,8 +10,10 @@ public class DischargeStack {
         }
     }
     private Node top;
+
     public DischargeStack() {
         //I created constructor
+
         this.top = null;
 
     }
@@ -31,8 +33,10 @@ public class DischargeStack {
     public DischargeRecord peek(){
         if(top==null){
             return null;
+
         }
         return top.record;
+
     }
     void printStack(){
     Node temp=top;
