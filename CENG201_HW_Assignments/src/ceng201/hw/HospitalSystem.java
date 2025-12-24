@@ -7,11 +7,11 @@ import java.util.HashMap;
 
 
 public class HospitalSystem {
-    private PatientList patientlist;
-    private TreatmentQueue priorityQueue;
-    private TreatmentQueue normalQueue;
-    private DischargeStack dischargeStack;
-    private HashMap<Integer,Patient>patientMap;
+    public PatientList patientlist;
+    public TreatmentQueue priorityQueue;
+    public TreatmentQueue normalQueue;
+    public DischargeStack dischargeStack;
+    public HashMap<Integer,Patient>patientMap;
 
     //I created constructor
 public HospitalSystem(){
