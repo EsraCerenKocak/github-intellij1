@@ -1,7 +1,7 @@
 package ceng201.hw;
 
 public class TreatmentQueue {
-    private class Node{ //To set up a Linked List-based queue,I need an inner node structure
+    private static class Node{ //To set up a Linked List-based queue,I need an inner node structure
         TreatmentRequest request;
         Node next;
         Node(TreatmentRequest request){//ı created constructor
@@ -26,10 +26,9 @@ public class TreatmentQueue {
                 currentsize++;
                 return;
             }
-            System.out.println("first variable added in the queue");
-
-
-
+            rear.next=variable;
+            rear=variable;
+            currentsize++;
 
         }
         public TreatmentRequest deQueue() {
@@ -40,13 +39,12 @@ public class TreatmentQueue {
 
             TreatmentRequest temp = front.request;
             front = front.next;//I moved the front to the next node
-
+            currentsize--;
 
             //If front becomes null,If the queue is completely emptied
             if (front == null) {
                 rear = null;
             }
-            currentsize--;
             return temp;
         }
         public int size(){//to return the current number of variables

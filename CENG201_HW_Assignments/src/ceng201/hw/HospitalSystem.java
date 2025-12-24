@@ -1,6 +1,10 @@
 package ceng201.hw;
 
+import java.util.ArrayList;
+
 import java.util.HashMap;
+
+
 
 public class HospitalSystem {
     private PatientList patientlist;
@@ -29,6 +33,7 @@ public HospitalSystem(){
     }else{
         normalQueue.enQueue(request);
     }
+}
     public Patient processTreatment(){
         TreatmentRequest request;
         if(priorityQueue.size()>0){
@@ -39,11 +44,78 @@ public HospitalSystem(){
         }
         else{
             return null;
-        }DischargeRecord dischargeRecord=new DischargeRecord(request.patientId);
+        }
+        DischargeRecord dischargeRecord=new DischargeRecord(request.patientId);
         dischargeStack.push(dischargeRecord);
         return patientMap.get(request.patientId);
         }
+        public void printSystemState(){
+            System.out.println("Current patients in system:");
+            patientlist.printList();
 
+            System.out.println("Priority Treatment Queue");
+            priorityQueue.printQueue();
+
+            System.out.println("normal treatment queue:");
+            normalQueue.printQueue();
+
+            System.out.println("Discharge Records:");
+            dischargeStack.printStack();
+
+        }
+        public void printPatientsSortedBySeverity() {
+            ArrayList<Patient> patientListForSorting = new ArrayList<>(patientMap.values());
+
+            mergeSortBySeverity(patientListForSorting, 0, patientListForSorting.size() - 1);
+
+            System.out.println("Patients sorted by severity(highest first):");
+            for (Patient p : patientListForSorting) {
+                System.out.println(p);
+            }}
+            private void mergeSortBySeverity (ArrayList < Patient > list,int left, int right){
+                if (left < right) {
+                    int mid = (left + right) / 2;
+
+                    mergeSortBySeverity(list, left, mid);
+                    mergeSortBySeverity(list, mid + 1, right);
+                    merge(list, left, mid, right);
+                }
+            }
+        private void merge(ArrayList<Patient>list,int left,int mid,int right){
+                int leftSize=mid-left+1;
+                int rightSize=right-mid;
+                ArrayList<Patient>leftList=new ArrayList<>();
+                ArrayList<Patient>rightList=new ArrayList<>();
+
+                for (int idx=0;idx<leftSize;idx++){
+                    leftList.add(list.get(left+idx));
+                }
+                for(int idx =0;idx<rightSize;idx++){
+                    rightList.add(list.get(mid+1+idx));
+                }
+                int leftIndex=0,rightIndex=0;
+                int mergedIndex=left;
+                while(leftIndex<leftSize&&rightIndex<rightSize){
+                    if(leftList.get(leftIndex).severity>=rightList.get(rightIndex).severity ){
+                        list.set(mergedIndex,leftList.get(leftIndex));
+                        leftIndex++;
+                    }else{
+                        list.set(mergedIndex,rightList.get(rightIndex));
+                        rightIndex++;
+                    }
+                    mergedIndex++;
+                }
+                while(leftIndex<leftSize){
+                list.set(mergedIndex,leftList.get(leftIndex));
+                leftIndex++;
+                mergedIndex++;
+                }
+                while(rightIndex<rightSize){
+                    list.set(mergedIndex,rightList.get(rightIndex));
+                    rightIndex++;
+                    mergedIndex++;
+                }
+            }
     }
 
-}
+

@@ -21,8 +21,13 @@ public class TestTreatmentQueue {
             return;
         }
         request= q.deQueue();
-        if(request.patientId!=3){
+        if(request.patientId!=2){
             System.out.println("Test failded"+request.patientId);
+            return;
+        }
+        request=q.deQueue();
+        if(request.patientId!=3){
+            System.out.println("test failed:"+request.patientId);
             return;
         }
         System.out.println("all test is succesful");

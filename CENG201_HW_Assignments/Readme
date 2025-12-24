@@ -1,4 +1,4 @@
-In this project,I used a singly linked list structure to manage patients admitted to the  hospital.
+Q-1)In this project,I used a singly linked list structure to manage patients admitted to the  hospital.
 I know that a linked list provides a more flexible structure compared to arrays,so,I benefited from the dynamic memory
 usage offered by the linked list.Unlike arrays,a linked list doesn't require shifting elements during insertion and
 deletion operations.This makes it very suitable for hospital systems where patient information changes frequently.

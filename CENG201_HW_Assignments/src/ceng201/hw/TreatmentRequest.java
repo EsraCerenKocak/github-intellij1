@@ -3,10 +3,12 @@ package ceng201.hw;
 
 
 public class TreatmentRequest {
-    int patientId;
+   public int patientId;
     long arrivalTime;
-    public TreatmentRequest(int patienId){
+    boolean isPriority;
+    public TreatmentRequest(int patientId){
         this.patientId=patientId;
+        this.isPriority=isPriority;
         this.arrivalTime= System.currentTimeMillis();
 
     }
