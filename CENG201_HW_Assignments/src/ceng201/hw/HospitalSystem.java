@@ -7,7 +7,8 @@ import java.util.HashMap;
 
 
 public class HospitalSystem {
-    public PatientList patientlist;
+    //I define it
+    public PatientList patientList;
     public TreatmentQueue priorityQueue;
     public TreatmentQueue normalQueue;
     public DischargeStack dischargeStack;
@@ -15,7 +16,7 @@ public class HospitalSystem {
 
     //I created constructor
 public HospitalSystem(){
-    this.patientlist=new PatientList();
+    this.patientList=new PatientList();
     this.priorityQueue=new TreatmentQueue();
     this.normalQueue=new TreatmentQueue();
     this.dischargeStack=new DischargeStack();
@@ -23,7 +24,7 @@ public HospitalSystem(){
 }
 //I created add method for adding patient
     public void addPatient(Patient p){
-    patientlist.addPatient(p);
+    patientList.addPatient(p);
     patientMap.put(p.id,p);
     }
     //adds treatment request
@@ -43,15 +44,19 @@ public HospitalSystem(){
             request=normalQueue.deQueue();
         }
         else{
-            return null;
+            return null;//no patients
         }
         DischargeRecord dischargeRecord=new DischargeRecord(request.patientId);
         dischargeStack.push(dischargeRecord);
         return patientMap.get(request.patientId);
         }
+        public void addDischargeRecord(DischargeRecord record)   {
+        dischargeStack.push(record);
+
+        }
         public void printSystemState(){
             System.out.println("Current patients in system:");
-            patientlist.printList();
+            patientList.printList();
 
             System.out.println("Priority Treatment Queue");
             priorityQueue.printQueue();
@@ -76,6 +81,7 @@ public HospitalSystem(){
                 if (left < right) {
                     int mid = (left + right) / 2;
 
+                  //recursivly sort first and second halves
                     mergeSortBySeverity(list, left, mid);
                     mergeSortBySeverity(list, mid + 1, right);
                     merge(list, left, mid, right);
@@ -86,16 +92,17 @@ public HospitalSystem(){
                 int rightSize=right-mid;
                 ArrayList<Patient>leftList=new ArrayList<>();
                 ArrayList<Patient>rightList=new ArrayList<>();
-
-                for (int idx=0;idx<leftSize;idx++){
+               //copy data to temp lists
+                for (int idx=0; idx<leftSize; idx++){
                     leftList.add(list.get(left+idx));
                 }
-                for(int idx =0;idx<rightSize;idx++){
+                for(int idx =0; idx<rightSize; idx++){
                     rightList.add(list.get(mid+1+idx));
                 }
                 int leftIndex=0,rightIndex=0;
                 int mergedIndex=left;
-                while(leftIndex<leftSize&&rightIndex<rightSize){
+                while(leftIndex<leftSize && rightIndex< rightSize){
+                    //ıf left patient's severity is greater than or equal to right patients severity
                     if(leftList.get(leftIndex).severity>=rightList.get(rightIndex).severity ){
                         list.set(mergedIndex,leftList.get(leftIndex));
                         leftIndex++;
@@ -104,12 +111,12 @@ public HospitalSystem(){
                         rightIndex++;
                     }
                     mergedIndex++;
-                }
-                while(leftIndex<leftSize){
+                }//copy remanining variable of leftlist
+                while(leftIndex < leftSize){
                 list.set(mergedIndex,leftList.get(leftIndex));
                 leftIndex++;
                 mergedIndex++;
-                }
+                }//Also copy remaining variable of rightlist
                 while(rightIndex<rightSize){
                     list.set(mergedIndex,rightList.get(rightIndex));
                     rightIndex++;

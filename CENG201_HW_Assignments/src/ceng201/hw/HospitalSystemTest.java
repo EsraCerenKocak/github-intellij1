@@ -11,19 +11,19 @@ public class HospitalSystemTest {
         }
         System.out.println("All patient added in the system");
         //I create and I added treatment requests(some priority !,some normal)
-        system.addTreatmentRequest(new TreatmentRequest(1,true));
+        system.addTreatmentRequest(new TreatmentRequest(1,false));
         system.addTreatmentRequest(new TreatmentRequest(2,true));
         system.addTreatmentRequest(new TreatmentRequest(3,false));
-        system.addTreatmentRequest(new TreatmentRequest(4,true));
+        system.addTreatmentRequest(new TreatmentRequest(4,false));
         system.addTreatmentRequest(new TreatmentRequest(5,true));
         system.addTreatmentRequest(new TreatmentRequest(6,false));
-        system.addTreatmentRequest(new TreatmentRequest(7,false));
-        system.addTreatmentRequest(new TreatmentRequest(8,true));
-        system.addTreatmentRequest(new TreatmentRequest(9,true));
-        //Add 1 discharge record to simulate prior discharges
+        system.addTreatmentRequest(new TreatmentRequest(7,true));
+        system.addTreatmentRequest(new TreatmentRequest(8,false));
+        //Add 2 discharge record to simulate prior discharges
         System.out.println("Adding treatment record to the system");
-        system.dischargeStack.push(new DischargeRecord(10));
-        System.out.println("all discharges record added");
+        system.addDischargeRecord(new DischargeRecord(9));
+        system.addDischargeRecord(new DischargeRecord(10));
+        System.out.println("all discharges records added");
 
 
         //Print İnitial system's state
