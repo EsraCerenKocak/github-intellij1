@@ -1,5 +1,7 @@
 package ceng201.hw;
 
+
+
 public class DischargeStack {
     private Node top;
     //** I creat a node class
@@ -20,12 +22,15 @@ public class DischargeStack {
         }
         public DischargeRecord pop() {
             //ıf the top is null,return null
-            if (top == null)
+            if (top == null){
+                System.out.println("the stack is empty");
             return null;
+        }
         //pop the top record
-        DischargeRecord record=top.r;
+        DischargeRecord deleted=top.r;
         top=top.next;
-        return record;
+        System.out.println("patient"+deleted.patientId+"removed from stack");
+        return deleted;
     }
     public DischargeRecord peek(){
             if(top==null){

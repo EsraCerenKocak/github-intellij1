@@ -3,13 +3,14 @@ package ceng201.hw;
 public class TreatmentQueue {
     private Node front;
     private Node rear;
-    private int currentsize;
+    private int size;
 
     private class Node{
         TreatmentRequest treatmentRequest;
         Node next;
 
         Node(TreatmentRequest data){
+
             this.treatmentRequest=data;
         }
     }
@@ -22,12 +23,12 @@ public class TreatmentQueue {
                 front = variable;
                 rear = variable;
                 System.out.println("added patient:"+request.patientId);
-                currentsize++;
+                size++;
             }else {
                 variable.next = null;
                 rear.next = variable;
                 rear = variable;
-                currentsize++;
+                size++;
                 System.out.println("added patient:" + request.patientId);
             }
         }
@@ -40,17 +41,17 @@ public class TreatmentQueue {
                 front=null;
                 rear=null;
                 System.out.println("the only patient deleted");
-                currentsize--;
+                size--;
                 return temp;
             }else{//ıf there are more one variable
                 TreatmentRequest temp=front.treatmentRequest;
                 front=front.next;
-                currentsize--;
+                size--;
                 return temp;
             }
         }
         public int size(){//to return the current number of variables
-        return currentsize;
+        return size;
 
         }
         void printQueue(){//

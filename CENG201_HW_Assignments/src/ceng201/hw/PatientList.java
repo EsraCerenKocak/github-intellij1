@@ -12,7 +12,8 @@ public class PatientList {
         Node next;
 
 
-        Node(Patient data) {
+        Node(Patient data)
+        {
             this.data = data;
         }
 
@@ -33,13 +34,13 @@ public class PatientList {
             tail.next = variable;
             tail = variable;
             variable.next = null;
-            System.out.println("patient added" + patientCount);
+            System.out.println( patientCount+".patient added");
 
         }
     }
 
     public void removePatient(int id) {//delete
-        System.out.println(id + "patient deleted");
+        System.out.println(id + ".patient deleted");
         if (head == null) {//ıf the list is empty
             System.out.println("The list is empty.There is no deleter variable");
             return;
@@ -69,14 +70,15 @@ public class PatientList {
 
         if (temp.next == null) {//ıf the deleted node is the last node,our tail is update
             tail = temp;
+            System.out.println("the element at the end has been deleted");
         }
-        System.out.println(" deleted variable");
+
     }
 
     public Patient findPatient(int id) {//find the patient in the given ıd
         if (head == null) {
             System.out.println("the list is empty");
-            return null;
+            return null;//ID not found
         }
         Node temp = head;
 

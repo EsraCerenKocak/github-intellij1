@@ -46,7 +46,7 @@ public HospitalSystem(){
         else{
             return null;//no patients
         }
-        DischargeRecord dischargeRecord=new DischargeRecord(request.patientId);
+        DischargeRecord dischargeRecord=new DischargeRecord(request.patientId,System.currentTimeMillis());
         dischargeStack.push(dischargeRecord);
         return patientMap.get(request.patientId);
         }
