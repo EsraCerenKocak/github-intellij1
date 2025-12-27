@@ -18,7 +18,7 @@ public class DischargeStackTest {
             return;
         }
         else{
-            System.out.println("popped record for patient ID"+record.patientId);
+            System.out.println("popped record for patient ID:"+record.patientId);
         }
         record=stack.pop();
         if(record.patientId!=4){
