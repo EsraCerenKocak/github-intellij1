@@ -1,18 +1,16 @@
 package ceng201.hw;
 
-
-
 public class DischargeStack {
-    private Node top;
     //** I creat a node class
     private class Node{
-        DischargeRecord r;
+        DischargeRecord record;
         Node next;
-        Node (DischargeRecord data){
-            this.r=data;
-
+        Node (DischargeRecord record){
+            this.record=record;
+            this.next=null;
         }
     }
+    private Node top;
 
    public void push(DischargeRecord record){
         Node variable=new Node(record);
@@ -22,34 +20,22 @@ public class DischargeStack {
         }
         public DischargeRecord pop() {
             //ıf the top is null,return null
-            if (top == null){
-                System.out.println("the stack is empty");
+            if (top == null)
             return null;
-        }
         //pop the top record
-        DischargeRecord deleted=top.r;
+        DischargeRecord record=top.record;
         top=top.next;
-        System.out.println("patient"+deleted.patientId+"removed from stack");
-        return deleted;
+        return record;
     }
     public DischargeRecord peek(){
-            if(top==null){
-                System.out.println("the stack is empty");
-                return null;
-            }
-            DischargeRecord first=top.r;
-            return first;
+            return top==null?null:top.record;
+
 
     }
     public void printStack(){
-        if(top==null){
-            System.out.println("the stack is empty");
-            return;
-        }
-        System.out.println("remaining discharge stack");
     Node temp=top;
-    while(temp!=null){//traverse so all element printed
-        System.out.println("Patient ID:"+temp.r.patientId+",Discharge Time"+temp.r.dischargeTime);
+    while(temp!=null){
+        System.out.println("Patient ID:"+temp.record.patientId+",Discharge Time"+temp.record.dischargeTime);
         temp=temp.next;
     }
     }

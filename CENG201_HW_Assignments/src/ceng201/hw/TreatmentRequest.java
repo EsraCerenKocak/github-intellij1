@@ -1,7 +1,7 @@
 package ceng201.hw;
 
 public class TreatmentRequest {
-    int patientId;
+   public int patientId;
     long arrivalTime;
     boolean isPriority;
     public TreatmentRequest(int patientId,boolean isPriority) {//my constructor

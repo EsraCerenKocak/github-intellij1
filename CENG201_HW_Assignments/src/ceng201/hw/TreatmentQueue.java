@@ -1,18 +1,21 @@
 package ceng201.hw;
 
 public class TreatmentQueue {
+    private static class Node{ //To set up a Linked List-based queue,I need an inner node structure
+        TreatmentRequest request;
+        Node next;
+        Node(TreatmentRequest request){//ı created constructor
+            this.request=request;
+            this.next=null;
+        }
+    }
+    private int currentsize;
     private Node front;
     private Node rear;
-    private int size;
-
-    private class Node{
-        TreatmentRequest treatmentRequest;
-        Node next;
-
-        Node(TreatmentRequest data){
-
-            this.treatmentRequest=data;
-        }
+    public TreatmentQueue(){
+        this.front=null;
+        this.rear=null;
+        this.currentsize=0;
     }
     //I add variable
     void enQueue(TreatmentRequest request){
@@ -23,12 +26,12 @@ public class TreatmentQueue {
                 front = variable;
                 rear = variable;
                 System.out.println("added patient:"+request.patientId);
-                size++;
+                currentsize++;
             }else {
                 variable.next = null;
                 rear.next = variable;
                 rear = variable;
-                size++;
+                currentsize++;
                 System.out.println("added patient:" + request.patientId);
             }
         }
@@ -37,21 +40,21 @@ public class TreatmentQueue {
                 System.out.println("queue is empty ");
                 return null;
             }else if(front.next==null){//ıf there is just one patient
-                TreatmentRequest temp=front.treatmentRequest;
+                TreatmentRequest temp=front.request;
                 front=null;
                 rear=null;
                 System.out.println("the only patient deleted");
-                size--;
+                currentsize--;
                 return temp;
             }else{//ıf there are more one variable
-                TreatmentRequest temp=front.treatmentRequest;
+                TreatmentRequest temp=front.request;
                 front=front.next;
-                size--;
+                currentsize--;
                 return temp;
             }
         }
         public int size(){//to return the current number of variables
-        return size;
+        return currentsize;
 
         }
         void printQueue(){//
@@ -59,7 +62,7 @@ public class TreatmentQueue {
         temp=front;
         while(temp!=null){//Traverse the linked list staring from the front of the queue
             //print the treatment request stored in the temp node
-            System.out.println("Patient ID:"+temp.treatmentRequest.patientId+",Arrival Time:"+temp.treatmentRequest.arrivalTime);
+            System.out.println("Patient ID:"+temp.request.patientId+",Arrival Time:"+temp.request.arrivalTime);
             temp=temp.next;
         }
     }

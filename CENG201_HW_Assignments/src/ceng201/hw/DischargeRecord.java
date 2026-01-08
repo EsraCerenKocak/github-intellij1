@@ -1,12 +1,12 @@
 package ceng201.hw;
 
 public class DischargeRecord {
-   public int patientId;
-   public long dischargeTime;
+    int patientId;
+    long dischargeTime;
 //Initialize discharge record with patient ID and current time
-    public DischargeRecord(int patientId,long dischargeTime){
+    public DischargeRecord(int patientId){
         this.patientId=patientId;
-        this.dischargeTime=dischargeTime;
+        this.dischargeTime=System.currentTimeMillis();
 
     }
 }

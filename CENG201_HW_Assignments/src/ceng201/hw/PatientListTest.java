@@ -12,8 +12,6 @@ public class PatientListTest {
         list.addPatient(new Patient(5,"Tülin",5,54));
         //remove patient
         list.removePatient(3);
-        //find method
-        list.findPatient(2);
         //print the list
         System.out.println("final list:");
         list.printList();

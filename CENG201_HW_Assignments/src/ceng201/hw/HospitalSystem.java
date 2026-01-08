@@ -46,7 +46,7 @@ public HospitalSystem(){
         else{
             return null;//no patients
         }
-        DischargeRecord dischargeRecord=new DischargeRecord(request.patientId,System.currentTimeMillis());
+        DischargeRecord dischargeRecord=new DischargeRecord(request.patientId);
         dischargeStack.push(dischargeRecord);
         return patientMap.get(request.patientId);
         }
@@ -116,7 +116,7 @@ public HospitalSystem(){
                 list.set(mergedIndex,leftList.get(leftIndex));
                 leftIndex++;
                 mergedIndex++;
-                }//Also copy remaining variable of rightlist
+                }//Also copy remaining variable of rightlist 
                 while(rightIndex<rightSize){
                     list.set(mergedIndex,rightList.get(rightIndex));
                     rightIndex++;

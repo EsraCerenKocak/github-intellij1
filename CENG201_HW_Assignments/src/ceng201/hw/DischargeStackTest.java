@@ -1,27 +1,36 @@
 package ceng201.hw;
 
 public class DischargeStackTest {
-    public static void main(String[]args)throws InterruptedException{
+    public static void main(String[]args){
         DischargeStack stack=new DischargeStack();
-       DischargeRecord r1=new DischargeRecord(1,System.currentTimeMillis());
-       Thread.sleep(5001);
-       DischargeRecord r2=new DischargeRecord(2,System.currentTimeMillis());
-       Thread.sleep(5001);
-       DischargeRecord r3=new DischargeRecord(3,System.currentTimeMillis());
-       Thread.sleep(5001);
-       DischargeRecord r4=new DischargeRecord(4,System.currentTimeMillis());
-       DischargeRecord r5=new DischargeRecord(5,System.currentTimeMillis());
+        //I added variable(push test)
+        System.out.println("pushing discharge records ");
+        stack.push(new DischargeRecord(1));
+        stack.push(new DischargeRecord(2));
+        stack.push(new DischargeRecord(3));
+        stack.push(new DischargeRecord(4));
+        stack.push(new DischargeRecord(5));
+        System.out.println("all records pushed");
+        //(pop test)I removed variable
+        DischargeRecord record=stack.pop();
+        if(record.patientId!=5){
+            System.out.println("test failed"+record.patientId);
+            return;
+        }
+        else{
+            System.out.println("popped record for patient ID"+record.patientId);
+        }
+        record=stack.pop();
+        if(record.patientId!=4){
+            System.out.println("test failed"+record.patientId);
+            return;
+        }
+        else{
+            System.out.println("popped record for patient Id"+record.patientId);
+        }
+        System.out.println("all tests is succesfull");
+        //print
+        stack.printStack();
 
-
-       stack.push(r1);
-       stack.push(r2);
-       stack.push(r3);
-       stack.push(r4);
-       stack.push(r5);
-
-       stack.pop();
-       stack.pop();
-
-       stack.printStack();
-
-}}
+    }
+}

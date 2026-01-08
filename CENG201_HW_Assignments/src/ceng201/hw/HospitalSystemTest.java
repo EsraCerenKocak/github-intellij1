@@ -21,8 +21,8 @@ public class HospitalSystemTest {
         system.addTreatmentRequest(new TreatmentRequest(8,false));
         //Add 2 discharge record to simulate prior discharges
         System.out.println("Adding treatment record to the system");
-        system.addDischargeRecord(new DischargeRecord(9,System.currentTimeMillis()));
-        system.addDischargeRecord(new DischargeRecord(10,System.currentTimeMillis()));
+        system.addDischargeRecord(new DischargeRecord(9));
+        system.addDischargeRecord(new DischargeRecord(10));
         System.out.println("all discharges records added");
 
 
